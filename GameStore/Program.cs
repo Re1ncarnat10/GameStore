@@ -1,4 +1,4 @@
-using GameStore.Data;
+using GameStore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +18,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddTransient<IHomeRepository, HomeRepository>();
 
 
 var app = builder.Build();

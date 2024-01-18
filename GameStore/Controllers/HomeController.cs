@@ -1,5 +1,8 @@
 using GameStore.Models;
+using GameStore.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Diagnostics;
 
 namespace GameStore.Controllers
@@ -7,15 +10,27 @@ namespace GameStore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IHomeRepository _homeRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHomeRepository homeRepository)
         {
             _logger = logger;
+            _homeRepository = homeRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string sterm="", int genreId=0)
         {
-            return View();
+            IEnumerable<Game> games= await _homeRepository.GetGames(sterm,genreId);
+            IEnumerable<Genre> genres = await _homeRepository.Genres();
+            GameDisplayModel gameModel = new GameDisplayModel
+            {
+                Games = games,
+                Genres = genres,
+                STerm=sterm,
+                GenreId=genreId
+            };
+            
+        return View(gameModel);
         }
 
         public IActionResult Privacy()

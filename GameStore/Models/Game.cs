@@ -28,5 +28,9 @@ namespace GameStore.Models
         public Genre Genre { get; set; }
         public List<OrderDetail> OrderDetail { get; set; }
         public List<CartDeatil> CartDeatil { get; set; }
+
+        [NotMapped]
+        public string GenreName {  get; set; }
+
     }
 }
