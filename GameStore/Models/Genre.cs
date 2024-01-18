@@ -10,9 +10,8 @@ namespace GameStore.Models
 
         [Required]
         [StringLength(30, MinimumLength = 1)]
-        public string GameName { get; set; }
+        public string GenreName { get; set; }
 
-        public int GenreId { get; set; }
         public List <Game> Games { get; set; }
     }
 }

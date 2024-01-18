@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameStore.Models
 {
+    [Table("OrderStatus")]
     public class OrderStatus
     {
         public int Id { get; set; }
@@ -10,7 +11,6 @@ namespace GameStore.Models
         public int StatusId { get; set; }
         [Required,MaxLength(20)]
         public string StatusName { get; set; }
-        [Required,MaxLength(20)]
-        public string StatusDescription { get; set; }
+
     }
 }
