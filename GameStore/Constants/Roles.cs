@@ -1,4 +1,4 @@
-﻿namespace GameStore.Constants
+namespace GameStore.Constants
 {
     public enum Roles
     {
