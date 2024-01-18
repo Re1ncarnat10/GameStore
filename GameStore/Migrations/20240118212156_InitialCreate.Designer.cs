@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GameStore.Data.Migrations
+namespace GameStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240118194239_ApplicationDbContextModelSnapshot.cs")]
-    partial class ApplicationDbContextModelSnapshotcs
+    [Migration("20240118212156_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

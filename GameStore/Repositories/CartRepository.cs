@@ -18,8 +18,9 @@ namespace GameStore.Repositories
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<int> AddItem(int gameId, int qty, string userId)
+        public async Task<int> AddItem(int gameId, int qty)
         {
+            string userId = GetUserId();
             using var transaction = _db.Database.BeginTransaction();
             try
             {
@@ -65,9 +66,10 @@ namespace GameStore.Repositories
         }
 
 
-        public async Task<int> RemoveItem(int gameId, string userId)
+        public async Task<int> RemoveItem(int gameId)
         {
             //using var transaction = _db.Database.BeginTransaction();
+            string userId = GetUserId();
             try
             {
                 if (string.IsNullOrEmpty(userId))
@@ -94,8 +96,9 @@ namespace GameStore.Repositories
             return cartItemCount;
         }
 
-        public async Task<ShoppingCart> GetUserCart(string userId)
+        public async Task<ShoppingCart> GetUserCart()
         {
+            var userId = GetUserId();
             if (userId == null)
                 throw new Exception("Invalid userid");
             var shoppingCart = await _db.ShoppingCarts
@@ -126,13 +129,14 @@ namespace GameStore.Repositories
             return data.Count;
         }
 
-        public async Task<bool> DoCheckout(string userId)
+        public async Task<bool> DoCheckout()
         {
             using var transaction = _db.Database.BeginTransaction();
             try
             {
                 // logic
                 // move data from cartDetail to order and order detail then we will remove cart detail
+                var userId = GetUserId();
                 if (string.IsNullOrEmpty(userId))
                     throw new Exception("User is not logged-in");
                 var cart = await GetCart(userId);
