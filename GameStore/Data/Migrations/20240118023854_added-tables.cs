@@ -101,7 +101,7 @@ namespace GameStore.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CartDeatil",
+                name: "CartDetail",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -113,15 +113,15 @@ namespace GameStore.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CartDeatil", x => x.Id);
+                    table.PrimaryKey("PK_CartDetail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CartDeatil_Game_GameId",
+                        name: "FK_CartDetail_Game_GameId",
                         column: x => x.GameId,
                         principalTable: "Game",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CartDeatil_ShoppingCart_ShoppingCartId",
+                        name: "FK_CartDetail_ShoppingCart_ShoppingCartId",
                         column: x => x.ShoppingCartId,
                         principalTable: "ShoppingCart",
                         principalColumn: "Id",
@@ -157,13 +157,13 @@ namespace GameStore.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartDeatil_GameId",
-                table: "CartDeatil",
+                name: "IX_CartDetail_GameId",
+                table: "CartDetail",
                 column: "GameId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartDeatil_ShoppingCartId",
-                table: "CartDeatil",
+                name: "IX_CartDetail_ShoppingCartId",
+                table: "CartDetail",
                 column: "ShoppingCartId");
 
             migrationBuilder.CreateIndex(
@@ -190,9 +190,9 @@ namespace GameStore.Data.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "CartDeatil");
 
+            migrationBuilder.DropTable(
+                name: "CartDetail");
             migrationBuilder.DropTable(
                 name: "OrderDetail");
 

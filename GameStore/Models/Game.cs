@@ -19,7 +19,7 @@ namespace GameStore.Models
 
         public string ReleaseDate { get; set; }
         [Required]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         public string Description { get; set; }
         public string ImageUrl { get; set; }
@@ -27,7 +27,7 @@ namespace GameStore.Models
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
         public List<OrderDetail> OrderDetail { get; set; }
-        public List<CartDeatil> CartDeatil { get; set; }
+        public List<CartDetails> CartDetails { get; set; }
 
         [NotMapped]
         public string GenreName {  get; set; }
