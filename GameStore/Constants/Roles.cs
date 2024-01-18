@@ -1,8 +1,8 @@
-﻿namespace GameStore.Constants
+namespace GameStore.Constants
 {
     public enum Roles
     {
-        User,
+        User=1,
         Admin
     }
 }
