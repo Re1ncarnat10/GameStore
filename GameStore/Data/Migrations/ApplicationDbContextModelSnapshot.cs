@@ -22,7 +22,7 @@ namespace GameStore.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GameStore.Models.CartDeatil", b =>
+            modelBuilder.Entity("GameStore.Models.CartDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,8 +33,8 @@ namespace GameStore.Data.Migrations
                     b.Property<int>("GameId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -48,7 +48,7 @@ namespace GameStore.Data.Migrations
 
                     b.HasIndex("ShoppingCartId");
 
-                    b.ToTable("CartDeatil");
+                    b.ToTable("CartDetail");
                 });
 
             modelBuilder.Entity("GameStore.Models.Game", b =>
@@ -79,8 +79,8 @@ namespace GameStore.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Publisher")
                         .IsRequired()
@@ -204,8 +204,9 @@ namespace GameStore.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -357,12 +358,10 @@ namespace GameStore.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -399,12 +398,10 @@ namespace GameStore.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -414,16 +411,16 @@ namespace GameStore.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("GameStore.Models.CartDeatil", b =>
+            modelBuilder.Entity("GameStore.Models.CartDetails", b =>
                 {
                     b.HasOne("GameStore.Models.Game", "Game")
-                        .WithMany("CartDeatil")
+                        .WithMany("CartDetails")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("GameStore.Models.ShoppingCart", "ShoppingCart")
-                        .WithMany("CartDeatils")
+                        .WithMany("CartDetails")
                         .HasForeignKey("ShoppingCartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -527,7 +524,7 @@ namespace GameStore.Data.Migrations
 
             modelBuilder.Entity("GameStore.Models.Game", b =>
                 {
-                    b.Navigation("CartDeatil");
+                    b.Navigation("CartDetails");
 
                     b.Navigation("OrderDetail");
                 });
@@ -544,7 +541,7 @@ namespace GameStore.Data.Migrations
 
             modelBuilder.Entity("GameStore.Models.ShoppingCart", b =>
                 {
-                    b.Navigation("CartDeatils");
+                    b.Navigation("CartDetails");
                 });
 #pragma warning restore 612, 618
         }

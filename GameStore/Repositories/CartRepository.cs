@@ -98,7 +98,7 @@ namespace GameStore.Repositories
 
         public async Task<ShoppingCart> GetUserCart()
         {
-            var userId = GetUserId();
+            string userId = GetUserId();
             if (userId == null)
                 throw new Exception("Invalid userid");
             var shoppingCart = await _db.ShoppingCarts
@@ -136,7 +136,7 @@ namespace GameStore.Repositories
             {
                 // logic
                 // move data from cartDetail to order and order detail then we will remove cart detail
-                var userId = GetUserId();
+                string userId = GetUserId();
                 if (string.IsNullOrEmpty(userId))
                     throw new Exception("User is not logged-in");
                 var cart = await GetCart(userId);
