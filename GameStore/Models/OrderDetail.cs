@@ -9,8 +9,11 @@ namespace GameStore.Models
         public int Id { get; set; }
         [Required]
         public int OrderId { get; set; }
+        [Required]
         public int GameId { get; set; }
+        [Required]
         public int Quantity { get; set; }
+        [Required]
         public decimal Price { get; set; }
         public Order Order { get; set; }
         public Game Game { get; set; }
