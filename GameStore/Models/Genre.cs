@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameStore.Models
 {
@@ -6,6 +7,12 @@ namespace GameStore.Models
     public class Genre
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+
+        [Required]
+        [StringLength(30, MinimumLength = 1)]
+        public string GameName { get; set; }
+
+        public int GenreId { get; set; }
+        public List <Game> Games { get; set; }
     }
 }
