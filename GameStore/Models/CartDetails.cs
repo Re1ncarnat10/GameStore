@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace GameStore.Models
 
 {
-    [Table("CartDeatil")]
-    public class CartDeatil
+    [Table("CartDetail")]
+    public class CartDetails
     {
         public int Id { get; set; }
         [Required]
@@ -15,7 +15,7 @@ namespace GameStore.Models
         [Required]
         public int Quantity { get; set; }
         [Required]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public Game Game { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
     }
