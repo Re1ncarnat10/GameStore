@@ -6,9 +6,11 @@ using GameStore.Models;
 using GameStore.Data;
 using GameStore.ViewModels;
 using GameStore.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameStore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
