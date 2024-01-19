@@ -1,0 +1,78 @@
+﻿@page
+@model AddGameModel
+
+<h2>Add Game</h2>
+
+@if (TempData["StatusMessage"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["StatusMessage"]
+    </div>
+}
+
+<form id="Add game" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.GameName" id="GameName" name="GameName" class="form-control" required />
+        <label asp-for="InputGame.GameName">Game Name</label>
+        <span asp-validation-for="InputGame.GameName" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.Publisher" id="Publisher" name="Publisher" class="form-control" required />
+        <label asp-for="InputGame.Publisher">Publisher</label>
+        <span asp-validation-for="InputGame.Publisher" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.Developer" id="Developer" name="Developer" class="form-control" required />
+        <label asp-for="InputGame.Developer">Developer</label>
+        <span asp-validation-for="InputGame.Developer" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.ReleaseDate" id="ReleaseDate" name="ReleaseDate" class="form-control" />
+        <label asp-for="InputGame.ReleaseDate">Release Date</label>
+        <span asp-validation-for="InputGame.ReleaseDate" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.Price" id="Price" name="Price" class="form-control" required />
+        <label asp-for="InputGame.Price">Price</label>
+        <span asp-validation-for="InputGame.Price" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.Description" id="Description" name="Description" class="form-control" />
+        <label asp-for="InputGame.Description">Description</label>
+        <span asp-validation-for="InputGame.Description" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.ImageUrl" id="ImageUrl" name="ImageUrl" class="form-control" />
+        <label asp-for="InputGame.ImageUrl">Image URL</label>
+        <span asp-validation-for="InputGame.ImageUrl" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="InputGame.GenreId" id="GenreId" name="GenreId" class="form-control" required />
+        <label asp-for="InputGame.GenreId">Genre ID</label>
+        <span asp-validation-for="InputGame.GenreId" class="text-danger"></span>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Game</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
