@@ -54,5 +54,40 @@
           <a href="#" class="btn btn-primary">Add to cart</a>
          </div>
     </div>
+       
+
     }
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="/Identity/Admin/AddGame" class="btn btn-danger">Add Game</a>
+    }
+
 </div>
+
+@section Scripts {
+    <script>
+        async function add(gameId) {
+            var usernameEl = document.getElementById("username");
+            if (usernameEl == null) {
+                window.location.href = "/Identity/Account/Login";
+                //var username=usernameEl.innerText;
+                //  if(username.length<1){
+                //      window.location.href="/Identity/Account/Login";
+                //  }
+            }
+            try {
+                var response = await fetch(`/Cart/AddItem?gameId=${gameId}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+                    window.location.href = "#cartCount";
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+}

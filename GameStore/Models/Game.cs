@@ -8,22 +8,22 @@ namespace GameStore.Models
         
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(30, MinimumLength = 1)]
 
         public string GameName { get; set; }
-        [Required]
+        //[Required]
         public string Publisher { get; set; }
-        [Required]
+        //[Required]
         public string Developer { get; set; }
 
         public string ReleaseDate { get; set; }
-        [Required]
-        public double Price { get; set; }
+        //[Required]
+        public decimal Price { get; set; }
 
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        [Required]
+        //[Required]
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
         public List<OrderDetail> OrderDetail { get; set; }
