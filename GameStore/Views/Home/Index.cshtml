@@ -50,6 +50,13 @@
                 <button type="button" onclick="add(@game.Id)" class="btn btn-primary">Add to cart</button>
          </div>
     </div>
+       
+
+    }
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="/Identity/Admin/AddGame" class="btn btn-danger">Add Game</a>
     }
 </div>
 
