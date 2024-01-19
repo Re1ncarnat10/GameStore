@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using GameStore.Models;
 using GameStore.Data;
 using GameStore.ViewModels;
+using GameStore.Models.DTOs;
 
 namespace GameStore.Controllers
 {
@@ -16,13 +17,29 @@ namespace GameStore.Controllers
         {
             _context = context;
         }
-
-        // GET: Games
-        public async Task<IActionResult> Index()
+        // GET: Admin/Manage
+        public IActionResult Index()
         {
-            return View(await _context.Games.ToListAsync());
+            return View();
         }
+        public async Task<IActionResult> Manage(string sTerm, int genreId, int? id)
+        {
+            if (id != null)
+            {
+                return RedirectToAction("Edit", new { id = id });
+            }
 
+            var model = new GameDisplayModel
+            {
+                Genres = await _context.Genres.ToListAsync(),
+                Games = await _context.Games
+                    .Where(g => (string.IsNullOrEmpty(sTerm) || g.GameName.Contains(sTerm)) &&
+                                (genreId == 0 || g.GenreId == genreId))
+                    .ToListAsync()
+            };
+
+            return View(model);
+        }    
         // GET: Games/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -68,12 +85,19 @@ namespace GameStore.Controllers
 
                 _context.Add(game);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction(nameof(Manage));
             }
             return View(model);
         }
 
+
+
         // GET: Games/Edit/5
+        //public IActionResult Edit()
+        //{
+        //    return View();
+        //}
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,21 +110,48 @@ namespace GameStore.Controllers
             {
                 return NotFound();
             }
-            return View(game);
+
+            var model = new EditGameViewModel
+            {
+                Id = game.Id,
+                GameName = game.GameName,
+                Publisher = game.Publisher,
+                Developer = game.Developer,
+                ReleaseDate = game.ReleaseDate,
+                Price = game.Price,
+                Description = game.Description,
+                ImageUrl = game.ImageUrl,
+                GenreId = game.GenreId
+            };
+
+            return View(model);
         }
 
         // POST: Games/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,GameName,Publisher,Developer,ReleaseDate,Price,Description,ImageUrl,GenreId")] Game game)
+        public async Task<IActionResult> Edit(int id, EditGameViewModel model)
         {
-            if (id != game.Id)
+            if (id != model.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
+                var game = new Game
+                {
+                    Id = model.Id,
+                    GameName = model.GameName,
+                    Publisher = model.Publisher,
+                    Developer = model.Developer,
+                    ReleaseDate = model.ReleaseDate,
+                    Price = model.Price,
+                    Description = model.Description,
+                    ImageUrl = model.ImageUrl,
+                    GenreId = model.GenreId
+                };
+
                 try
                 {
                     _context.Update(game);
@@ -117,9 +168,14 @@ namespace GameStore.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Manage));
             }
-            return View(game);
+            return View(model);
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
         }
 
         // GET: Games/Delete/5
@@ -137,7 +193,17 @@ namespace GameStore.Controllers
                 return NotFound();
             }
 
-            return View(game);
+            var model = new DeleteGameViewModel
+            {
+                Id = game.Id,
+                GameName = game.GameName,
+                Developer = game.Developer,
+                Price = game.Price,
+                GenreName = game.Genre.GenreName,
+                ImageUrl = game.ImageUrl
+            };
+
+            return View(model);
         }
 
         // POST: Games/Delete/5
@@ -146,11 +212,16 @@ namespace GameStore.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var game = await _context.Games.FindAsync(id);
+            if (game == null)
+            {
+                return Json(new { success = false });
+            }
+
             _context.Games.Remove(game);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
+            return Json(new { success = true });
+        }
         private bool GameExists(int id)
         {
             return _context.Games.Any(e => e.Id == id);
