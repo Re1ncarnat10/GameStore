@@ -1,0 +1,72 @@
+﻿@model GameStore.ViewModels.EditGameViewModel
+
+<h2>Edit Game</h2>
+
+@if (TempData["StatusMessage"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["StatusMessage"]
+    </div>
+}
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="GameName" class="form-control" required />
+        <label asp-for="GameName">Game Name</label>
+        <span asp-validation-for="GameName" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="Publisher" class="form-control" required />
+        <label asp-for="Publisher">Publisher</label>
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="Developer" class="form-control" required />
+        <label asp-for="Developer">Developer</label>
+        <span asp-validation-for="Developer" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="ReleaseDate" class="form-control" />
+        <label asp-for="ReleaseDate">Release Date</label>
+        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="Price" class="form-control" required />
+        <label asp-for="Price">Price</label>
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="Description" class="form-control" />
+        <label asp-for="Description">Description</label>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="ImageUrl" class="form-control" />
+        <label asp-for="ImageUrl">Image URL</label>
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="GenreId" class="form-control" required />
+        <label asp-for="GenreId">Genre ID</label>
+        <span asp-validation-for="GenreId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
