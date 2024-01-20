@@ -12,7 +12,7 @@
     <form asp-action="Manage" class="row row-cols-lg-auto g-3 align-items-center">
         <div class="col-12">
             <label class="visually-hidden" for="genreId">Genres</label>
-            <select class="form-select" id="genreId" name="genreId">
+            <select class="form-select" id="genreId" name="genreId"> 
                 <option selected>Genre</option>
                 @foreach (var genre in Model.Genres)
                 {
