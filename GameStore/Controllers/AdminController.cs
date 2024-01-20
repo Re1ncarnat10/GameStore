@@ -7,6 +7,7 @@ using GameStore.Data;
 using GameStore.ViewModels;
 using GameStore.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GameStore.Controllers
 {
@@ -62,6 +63,7 @@ namespace GameStore.Controllers
         // GET: Games/Create
         public IActionResult Create()
         {
+            ViewBag.Genres = new SelectList(_context.Genres, "Id", "GenreName");
             return View();
         }
 
