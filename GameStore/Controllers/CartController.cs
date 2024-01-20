@@ -45,5 +45,11 @@ namespace GameStore.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public async Task<IActionResult> Clear()
+        {
+            await _cartRepo.ClearCart();
+            return Ok();
+        }
+
     }
 }

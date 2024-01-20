@@ -41,7 +41,7 @@
         </div>
 
         <div class="my-2">
-            <a class="btn btn-primary" href="/Cart/Checkout">Checkout</a>
+            <button id="checkoutButton" class="btn btn-primary">Checkout</button>
         </div>
 
     }
@@ -50,5 +50,27 @@
         <h5>Cart is empty</h5>
     }
 </div>
+
+@section Scripts {
+    <script>
+        document.getElementById('checkoutButton').addEventListener('click', function () {
+            alert('Order has been placed');
+            clearCartAndRedirect();
+        });
+
+        async function clearCartAndRedirect() {
+            try {
+                const response = await fetch('/Cart/Clear', { method: 'POST' });
+                if (response.ok) {
+                    window.location.href = '/Home/Index';
+                } else {
+                    console.error('Failed to clear cart', response);
+                }
+            } catch (error) {
+                console.error('Error clearing cart', error);
+            }
+        }
+    </script>
+}
 
 

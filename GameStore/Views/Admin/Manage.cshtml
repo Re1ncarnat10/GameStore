@@ -9,8 +9,29 @@
     </div>
 }
 <div class="my-2">
-    <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
-        <!-- Formularz wyszukiwania -->
+    <form asp-action="Manage" class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+            <label class="visually-hidden" for="genreId">Genres</label>
+            <select class="form-select" id="genreId" name="genreId">
+                <option selected>Genre</option>
+                @foreach (var genre in Model.Genres)
+                {
+                    <option selected="@(genre.Id==Model.GenreId)" value="@genre.Id">@genre.GenreName</option>
+                }
+            </select>
+        </div>
+        <div class="col-12">
+            <label class="visually-hidden" for="sterm">Search by title</label>
+            <div class="input-group">
+                <div class="input-group-text"></div>
+                <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Search by title">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href="/Admin/Manage" class="btn btn-dark">Reset</a>
+        </div>
     </form>
     <a asp-action="Create" class="btn btn-primary">Add New Game</a>
 </div>
