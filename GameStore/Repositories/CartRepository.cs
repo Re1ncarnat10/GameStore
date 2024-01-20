@@ -1,4 +1,4 @@
-﻿using GameStore.Models;
+using GameStore.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -204,6 +204,22 @@ namespace GameStore.Repositories
             {
                 // Log exception here
                 throw;
+            }
+        }
+        public async Task ClearCart()
+        {
+            var userId = GetUserId();
+            if (string.IsNullOrEmpty(userId))
+                throw new Exception("User is not logged-in");
+            var cart = await GetCart(userId);
+            if (cart is null)
+                throw new Exception("Invalid cart");
+            var cartDetail = _db.CartDetails
+                                .Where(a => a.ShoppingCartId == cart.Id).ToList();
+            if (cartDetail.Count > 0)
+            {
+                _db.CartDetails.RemoveRange(cartDetail);
+                await _db.SaveChangesAsync();
             }
         }
     }

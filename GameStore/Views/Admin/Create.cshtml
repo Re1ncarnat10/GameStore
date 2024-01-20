@@ -9,7 +9,7 @@
     </div>
 }
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="form-floating mb-3">
@@ -48,15 +48,17 @@
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
-    <div class="form-floating mb-3">
-        <input asp-for="ImageUrl" class="form-control" />
-        <label asp-for="ImageUrl">Image URL</label>
-        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    <div class="form-group">
+        <label asp-for="ImageFile" class="control-label"></label>
+        <input asp-for="ImageFile" class="form-control" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
 
     <div class="form-floating mb-3">
-        <input asp-for="GenreId" class="form-control" required />
-        <label asp-for="GenreId">Genre ID</label>
+        <select asp-for="GenreId" asp-items="ViewBag.Genres" class="form-control">
+            <option value="">-- Select Genre --</option>
+        </select>
+        <label asp-for="GenreId">Genre</label>
         <span asp-validation-for="GenreId" class="text-danger"></span>
     </div>
 

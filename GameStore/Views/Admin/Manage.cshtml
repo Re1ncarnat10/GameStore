@@ -9,11 +9,10 @@
     </div>
 }
 <div class="my-2">
-    <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
-
+    <form asp-action="Manage" class="row row-cols-lg-auto g-3 align-items-center">
         <div class="col-12">
             <label class="visually-hidden" for="genreId">Genres</label>
-            <select class="form-select" id="genreId" name="genreId">
+            <select class="form-select" id="genreId" name="genreId"> 
                 <option selected>Genre</option>
                 @foreach (var genre in Model.Genres)
                 {
@@ -31,29 +30,26 @@
 
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Search</button>
-            <a href="/Home/Index" class="btn btn-dark">Reset</a>
+            <a href="/Admin/Manage" class="btn btn-dark">Reset</a>
         </div>
-        
     </form>
     <a asp-action="Create" class="btn btn-primary">Add New Game</a>
 </div>
 
 <div class="w-100 mt-4 d-flex flex-wrap">
+    <!-- Kontener flexbox -->
     @foreach (var game in Model.Games)
     {
         <div class="card mx-2 mb-4" style="width: 11rem;">
-            <!-- Game image is the same as before -->
-            <!-- ... -->
+            <img src="@game.ImageUrl" class="card-img-top" alt="@game.GameName">
             <div class="card-body">
                 <h5 class="card-title">@game.GameName</h5>
                 <p class="card-text">Genre:@game.Genre.GenreName</p>
                 <p>Developer:@game.Developer</p>
                 <p>Price:@game.Price</p>
-                <a asp-action="Edit" asp-route-id="@game.Id" class="btn btn-secondary">Edit</a>
-                <form class="delete-form" method="post">
-                    <input type="hidden" name="id" value="@game.Id" />
-                    <input type="button" value="Delete" class="btn btn-danger delete-button" />
-                </form>
+                <a asp-action="Edit" asp-route-id="@game.Id" class="btn btn-primary"><i class="fa fa-pencil"></i>Edit</a>
+                <a asp-action="Details" asp-route-id="@game.Id" class="btn btn-secondary"><i class="fa fa-eye"></i>Details</a>
+                <a asp-action="Delete" asp-route-id="@game.Id" class="btn btn-danger"><i class="fa fa-trash"></i>Delete</a>
             </div>
         </div>
     }

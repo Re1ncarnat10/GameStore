@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
 <html lang="en">
@@ -8,7 +8,10 @@
     <meta name="RequestVerificationToken" content="@ViewData["RequestVerificationToken"]" />
     <title>GameStore</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -61,7 +64,5 @@
         }
     }
 </script>
-</html>
-
-
 @await RenderSectionAsync("Scripts", required: false)
+</html>

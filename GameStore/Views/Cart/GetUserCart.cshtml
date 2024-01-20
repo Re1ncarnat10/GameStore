@@ -1,4 +1,4 @@
-﻿@model ShoppingCart
+@model ShoppingCart
 @{
     ViewData["Title"] = "GetUserCart";
 }
@@ -22,14 +22,7 @@
                 <tr>
                     <td>@item.Game.GameName</td>
                     <td>
-                        @if (string.IsNullOrEmpty(item.Game.ImageUrl))
-                        {
-                            <img src="/images/NoImage.png" style="width:80px;height:100px" />
-                        }
-                        else
-                        {
-                            <img src="/images/@item.Game.ImageUrl" style="width:80px;height:100px" />
-                        }
+                        <img src="@item.Game.ImageUrl" style="width:80px;height:100px" />
                     </td>
                     <td>@item.Game.Genre.GenreName</td>
                     <td>@item.Game.Price X @item.Quantity</td>
@@ -43,12 +36,12 @@
         </table>
 
         <div class="my-2">
-            <h5>Total(INR): </h5>
+            <h5>Total(Zloty): </h5>
             @(Model.CartDetails.Select(item => item.Game.Price * item.Quantity).Sum())
         </div>
 
         <div class="my-2">
-            <a class="btn btn-primary" href="/Cart/Checkout">Checkout</a>
+            <button id="checkoutButton" class="btn btn-primary">Checkout</button>
         </div>
 
     }
@@ -58,3 +51,24 @@
     }
 </div>
 
+@section Scripts {
+    <script>
+        document.getElementById('checkoutButton').addEventListener('click', function () {
+            alert('Order has been placed');
+            clearCartAndRedirect();
+        });
+
+        async function clearCartAndRedirect() {
+            try {
+                const response = await fetch('/Cart/Clear', { method: 'POST' });
+                if (response.ok) {
+                    window.location.href = '/Home/Index';
+                } else {
+                    console.error('Failed to clear cart', response);
+                }
+            } catch (error) {
+                console.error('Error clearing cart', error);
+            }
+        }
+    </script>
+}
