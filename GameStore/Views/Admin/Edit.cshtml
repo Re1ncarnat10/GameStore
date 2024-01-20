@@ -9,7 +9,7 @@
     </div>
 }
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
     <input asp-for="Id" type="hidden" />
     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -50,9 +50,9 @@
     </div>
 
     <div class="form-floating mb-3">
-        <input asp-for="ImageUrl" class="form-control" />
-        <label asp-for="ImageUrl">Image URL</label>
-        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        <input asp-for="ImageFile" type="file" class="form-control" />
+        <label asp-for="ImageFile">Image File</label>
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
 
     <div class="form-floating mb-3">
@@ -69,4 +69,5 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
 

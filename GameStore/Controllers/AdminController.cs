@@ -41,7 +41,7 @@ namespace GameStore.Controllers
             };
 
             return View(model);
-        }    
+        }
         // GET: Games/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -50,8 +50,7 @@ namespace GameStore.Controllers
                 return NotFound();
             }
 
-            var game = await _context.Games
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var game = await _context.Games.Include(g => g.Genre).FirstOrDefaultAsync(m => m.Id == id);
             if (game == null)
             {
                 return NotFound();
@@ -81,9 +80,19 @@ namespace GameStore.Controllers
                     ReleaseDate = model.ReleaseDate,
                     Price = model.Price,
                     Description = model.Description,
-                    ImageUrl = model.ImageUrl,
                     GenreId = model.GenreId
                 };
+
+                if (model.ImageFile != null)
+                {
+                    var fileName = Path.GetFileName(model.ImageFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+                    using (var stream = System.IO.File.Create(filePath))
+                    {
+                        await model.ImageFile.CopyToAsync(stream);
+                    }
+                    game.ImageUrl = "/images/" + fileName; // Save the path to the image
+                }
 
                 _context.Add(game);
                 await _context.SaveChangesAsync();
@@ -94,11 +103,8 @@ namespace GameStore.Controllers
 
 
 
+
         // GET: Games/Edit/5
-        //public IActionResult Edit()
-        //{
-        //    return View();
-        //}
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -122,7 +128,6 @@ namespace GameStore.Controllers
                 ReleaseDate = game.ReleaseDate,
                 Price = game.Price,
                 Description = game.Description,
-                ImageUrl = game.ImageUrl,
                 GenreId = game.GenreId
             };
 
@@ -150,9 +155,19 @@ namespace GameStore.Controllers
                     ReleaseDate = model.ReleaseDate,
                     Price = model.Price,
                     Description = model.Description,
-                    ImageUrl = model.ImageUrl,
                     GenreId = model.GenreId
                 };
+
+                if (model.ImageFile != null)
+                {
+                    var fileName = Path.GetFileName(model.ImageFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+                    using (var stream = System.IO.File.Create(filePath))
+                    {
+                        await model.ImageFile.CopyToAsync(stream);
+                    }
+                    game.ImageUrl = "/images/" + fileName;
+                }
 
                 try
                 {

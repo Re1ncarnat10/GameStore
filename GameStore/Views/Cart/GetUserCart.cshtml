@@ -22,14 +22,7 @@
                 <tr>
                     <td>@item.Game.GameName</td>
                     <td>
-                        @if (string.IsNullOrEmpty(item.Game.ImageUrl))
-                        {
-                            <img src="/images/NoImage.png" style="width:80px;height:100px" />
-                        }
-                        else
-                        {
-                            <img src="/images/@item.Game.ImageUrl" style="width:80px;height:100px" />
-                        }
+                        <img src="@item.Game.ImageUrl" style="width:80px;height:100px" />
                     </td>
                     <td>@item.Game.Genre.GenreName</td>
                     <td>@item.Game.Price X @item.Quantity</td>
@@ -57,4 +50,5 @@
         <h5>Cart is empty</h5>
     }
 </div>
+
 
