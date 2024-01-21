@@ -1,4 +1,4 @@
-﻿using GameStore.Models;
+using GameStore.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
