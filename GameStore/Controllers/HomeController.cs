@@ -33,9 +33,10 @@ namespace GameStore.Controllers
         return View(gameModel);
         }
 
-        public IActionResult Privacy()
+        [Route("Home/About_us")]
+        public IActionResult AboutUs()
         {
-            return View();
+            return View("About_us");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -43,5 +44,16 @@ namespace GameStore.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [Route("Home/GameDetails/{id}")]
+        public async Task<IActionResult> GameDetails(int id)
+        {
+            var game = await _homeRepository.GetGameById(id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+            return View(game);
+        }
+
     }
 }

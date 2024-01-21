@@ -32,5 +32,11 @@ namespace GameStore.Repositories
 
             return await games.ToListAsync();
         }
+        public async Task<Game> GetGameById(int id)
+        {
+            return await _db.Games.Include(g => g.Genre).FirstOrDefaultAsync(g => g.Id == id);
+        }
+
+
     }
 }

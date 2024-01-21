@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{968ca526-1474-4a06-b2e9-d09a9735368f}</ProjectGuid>
+        <ProjectHome>.</ProjectHome>
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile />
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="package.json" />
+        <Content Include="GameStore\appsettings.json" />
+        <Content Include="GameStore\libman.json" />
+        <Content Include="GameStore\obj\GameStore.csproj.nuget.dgspec.json" />
+        <Content Include="GameStore\obj\project.assets.json" />
+        <Content Include="GameStore\Properties\launchSettings.json" />
+        <Content Include="GameStore\Properties\serviceDependencies.json" />
+        <Content Include="GameStore\Properties\serviceDependencies.local.json" />
+        <Content Include="GameStore\wwwroot\favicon.ico" />
+        <Content Include="GameStore\bin\Debug\net8.0\appsettings.json" />
+        <Content Include="GameStore\bin\Debug\net8.0\GameStore.deps.json" />
+        <Content Include="GameStore\bin\Debug\net8.0\GameStore.runtimeconfig.json" />
+        <Content Include="GameStore\bin\Debug\net8.0\GameStore.staticwebassets.runtime.json" />
+        <Content Include="GameStore\bin\Debug\net8.0\libman.json" />
+        <Content Include="GameStore\obj\Debug\net8.0\GameStore.csproj.FileListAbsolute.txt" />
+        <Content Include="GameStore\obj\Debug\net8.0\GameStore.sourcelink.json" />
+        <Content Include="GameStore\obj\Debug\net8.0\staticwebassets.build.json" />
+        <Content Include="GameStore\obj\Debug\net8.0\staticwebassets.development.json" />
+        <Content Include="GameStore\obj\Debug\net8.0\staticwebassets.pack.json" />
+        <Content Include="GameStore\obj\Debug\net8.0\scopedcss\bundle\GameStore.styles.css" />
+        <Content Include="GameStore\obj\Debug\net8.0\scopedcss\projectbundle\GameStore.bundle.scp.css" />
+        <Content Include="GameStore\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css" />
+        <Content Include="GameStore\Views\Shared\_Layout.cshtml.css" />
+        <Content Include="GameStore\wwwroot\css\bootstrap.min.css" />
+        <Content Include="GameStore\wwwroot\images\minecraft.png" />
+        <Content Include="GameStore\wwwroot\images\noimage.png" />
+        <Content Include="GameStore\wwwroot\images\zlom.png" />
+        <Content Include="GameStore\wwwroot\images\Baldur's_Gate_3_cover_art.jpg" />
+        <Content Include="GameStore\wwwroot\images\CS-GO3.jpg" />
+        <Content Include="GameStore\wwwroot\images\GameStore.jpg" />
+        <Content Include="GameStore\wwwroot\images\i-fifa-23-digital.jpg" />
+        <Content Include="GameStore\wwwroot\lib\jquery\LICENSE.txt" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation\LICENSE.md" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+        <Content Include="GameStore\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\all.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\all.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\brands.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\brands.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\fontawesome.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\fontawesome.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\regular.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\regular.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\solid.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\solid.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\svg-with-js.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\svg-with-js.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\v4-font-face.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\v4-font-face.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\v4-shims.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\v4-shims.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\v5-font-face.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\css\v5-font-face.min.css" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\all.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\all.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\brands.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\brands.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\conflict-detection.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\conflict-detection.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\fontawesome.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\fontawesome.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\regular.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\regular.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\solid.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\solid.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\v4-shims.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\js\v4-shims.min.js" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\sprites\brands.svg" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\sprites\regular.svg" />
+        <Content Include="GameStore\wwwroot\lib\font-awesome\sprites\solid.svg" />
+        <Content Include="GameStore\wwwroot\lib\jquery\dist\jquery.js" />
+        <Content Include="GameStore\wwwroot\lib\jquery\dist\jquery.min.js" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+        <Content Include="GameStore\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="GameStore" />
+        <Folder Include="GameStore\Areas" />
+        <Folder Include="GameStore\Areas\Identity" />
+        <Folder Include="GameStore\Areas\Identity\Pages" />
+        <Folder Include="GameStore\Areas\Identity\Pages\Account" />
+        <Folder Include="GameStore\Areas\Identity\Pages\Account\Manage" />
+        <Folder Include="GameStore\Areas\Identity\Pages\Admin" />
+        <Folder Include="GameStore\bin" />
+        <Folder Include="GameStore\bin\Debug" />
+        <Folder Include="GameStore\bin\Debug\net8.0" />
+        <Folder Include="GameStore\bin\Debug\net8.0\af" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ar" />
+        <Folder Include="GameStore\bin\Debug\net8.0\az" />
+        <Folder Include="GameStore\bin\Debug\net8.0\bg" />
+        <Folder Include="GameStore\bin\Debug\net8.0\bn-BD" />
+        <Folder Include="GameStore\bin\Debug\net8.0\cs" />
+        <Folder Include="GameStore\bin\Debug\net8.0\da" />
+        <Folder Include="GameStore\bin\Debug\net8.0\de" />
+        <Folder Include="GameStore\bin\Debug\net8.0\el" />
+        <Folder Include="GameStore\bin\Debug\net8.0\es" />
+        <Folder Include="GameStore\bin\Debug\net8.0\fa" />
+        <Folder Include="GameStore\bin\Debug\net8.0\fi-FI" />
+        <Folder Include="GameStore\bin\Debug\net8.0\fr" />
+        <Folder Include="GameStore\bin\Debug\net8.0\fr-BE" />
+        <Folder Include="GameStore\bin\Debug\net8.0\he" />
+        <Folder Include="GameStore\bin\Debug\net8.0\hr" />
+        <Folder Include="GameStore\bin\Debug\net8.0\hu" />
+        <Folder Include="GameStore\bin\Debug\net8.0\hy" />
+        <Folder Include="GameStore\bin\Debug\net8.0\id" />
+        <Folder Include="GameStore\bin\Debug\net8.0\is" />
+        <Folder Include="GameStore\bin\Debug\net8.0\it" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ja" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ko" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ko-KR" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ku" />
+        <Folder Include="GameStore\bin\Debug\net8.0\lv" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ms-MY" />
+        <Folder Include="GameStore\bin\Debug\net8.0\mt" />
+        <Folder Include="GameStore\bin\Debug\net8.0\nb" />
+        <Folder Include="GameStore\bin\Debug\net8.0\nb-NO" />
+        <Folder Include="GameStore\bin\Debug\net8.0\nl" />
+        <Folder Include="GameStore\bin\Debug\net8.0\pl" />
+        <Folder Include="GameStore\bin\Debug\net8.0\pt" />
+        <Folder Include="GameStore\bin\Debug\net8.0\pt-BR" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ro" />
+        <Folder Include="GameStore\bin\Debug\net8.0\ru" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\browser-wasm" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-arm" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-arm\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-arm64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-arm64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-armel" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-armel\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-mips64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-mips64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-musl-arm" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-musl-arm\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-musl-arm64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-musl-arm64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-musl-x64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-musl-x64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-ppc64le" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-ppc64le\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-s390x" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-s390x\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-x64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-x64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-x86" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\linux-x86\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\maccatalyst-arm64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\maccatalyst-arm64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\maccatalyst-x64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\maccatalyst-x64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\osx-arm64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\osx-arm64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\osx-x64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\osx-x64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\unix" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\unix\lib" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\unix\lib\net6.0" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win\lib" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win\lib\net6.0" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win\lib\net7.0" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-arm" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-arm\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-arm64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-arm64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-x64" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-x64\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-x86" />
+        <Folder Include="GameStore\bin\Debug\net8.0\runtimes\win-x86\native" />
+        <Folder Include="GameStore\bin\Debug\net8.0\sk" />
+        <Folder Include="GameStore\bin\Debug\net8.0\sl" />
+        <Folder Include="GameStore\bin\Debug\net8.0\sr" />
+        <Folder Include="GameStore\bin\Debug\net8.0\sr-Latn" />
+        <Folder Include="GameStore\bin\Debug\net8.0\sv" />
+        <Folder Include="GameStore\bin\Debug\net8.0\th-TH" />
+        <Folder Include="GameStore\bin\Debug\net8.0\tr" />
+        <Folder Include="GameStore\bin\Debug\net8.0\uk" />
+        <Folder Include="GameStore\bin\Debug\net8.0\uz-Cyrl-UZ" />
+        <Folder Include="GameStore\bin\Debug\net8.0\uz-Latn-UZ" />
+        <Folder Include="GameStore\bin\Debug\net8.0\vi" />
+        <Folder Include="GameStore\bin\Debug\net8.0\zh-CN" />
+        <Folder Include="GameStore\bin\Debug\net8.0\zh-Hans" />
+        <Folder Include="GameStore\bin\Debug\net8.0\zh-Hant" />
+        <Folder Include="GameStore\bin\Release" />
+        <Folder Include="GameStore\bin\Release\net8.0" />
+        <Folder Include="GameStore\Constants" />
+        <Folder Include="GameStore\Controllers" />
+        <Folder Include="GameStore\Data" />
+        <Folder Include="GameStore\Migrations" />
+        <Folder Include="GameStore\Models" />
+        <Folder Include="GameStore\Models\DTOs" />
+        <Folder Include="GameStore\obj" />
+        <Folder Include="GameStore\obj\Debug" />
+        <Folder Include="GameStore\obj\Debug\net8.0" />
+        <Folder Include="GameStore\obj\Debug\net8.0\ref" />
+        <Folder Include="GameStore\obj\Debug\net8.0\refint" />
+        <Folder Include="GameStore\obj\Debug\net8.0\scopedcss" />
+        <Folder Include="GameStore\obj\Debug\net8.0\scopedcss\bundle" />
+        <Folder Include="GameStore\obj\Debug\net8.0\scopedcss\projectbundle" />
+        <Folder Include="GameStore\obj\Debug\net8.0\scopedcss\Views" />
+        <Folder Include="GameStore\obj\Debug\net8.0\scopedcss\Views\Shared" />
+        <Folder Include="GameStore\obj\Debug\net8.0\staticwebassets" />
+        <Folder Include="GameStore\obj\Release" />
+        <Folder Include="GameStore\obj\Release\net8.0" />
+        <Folder Include="GameStore\obj\Release\net8.0\ref" />
+        <Folder Include="GameStore\obj\Release\net8.0\refint" />
+        <Folder Include="GameStore\Properties" />
+        <Folder Include="GameStore\Repositories" />
+        <Folder Include="GameStore\ViewModels" />
+        <Folder Include="GameStore\Views" />
+        <Folder Include="GameStore\Views\Admin" />
+        <Folder Include="GameStore\Views\Cart" />
+        <Folder Include="GameStore\Views\Home" />
+        <Folder Include="GameStore\Views\Shared" />
+        <Folder Include="GameStore\Views\UserOrder" />
+        <Folder Include="GameStore\wwwroot" />
+        <Folder Include="GameStore\wwwroot\css" />
+        <Folder Include="GameStore\wwwroot\images" />
+        <Folder Include="GameStore\wwwroot\lib" />
+        <Folder Include="GameStore\wwwroot\lib\bootstrap" />
+        <Folder Include="GameStore\wwwroot\lib\bootstrap\dist" />
+        <Folder Include="GameStore\wwwroot\lib\bootstrap\dist\css" />
+        <Folder Include="GameStore\wwwroot\lib\bootstrap\dist\js" />
+        <Folder Include="GameStore\wwwroot\lib\font-awesome" />
+        <Folder Include="GameStore\wwwroot\lib\font-awesome\css" />
+        <Folder Include="GameStore\wwwroot\lib\font-awesome\js" />
+        <Folder Include="GameStore\wwwroot\lib\font-awesome\sprites" />
+        <Folder Include="GameStore\wwwroot\lib\font-awesome\webfonts" />
+        <Folder Include="GameStore\wwwroot\lib\jquery" />
+        <Folder Include="GameStore\wwwroot\lib\jquery\dist" />
+        <Folder Include="GameStore\wwwroot\lib\jquery-validation" />
+        <Folder Include="GameStore\wwwroot\lib\jquery-validation\dist" />
+        <Folder Include="GameStore\wwwroot\lib\jquery-validation-unobtrusive" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>

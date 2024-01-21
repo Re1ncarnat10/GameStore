@@ -4,6 +4,12 @@
 }
 @section Styles {
     <style>
+        body {
+            background-image: url('/images/gaming.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
         .game-card {
             position: relative;
             display: flex;
@@ -22,8 +28,8 @@
             }
     </style>
 }
+}
 <div class="my-2">
-    <img src="/images/GameStore.jpg" alt="Game Store Logo" style="width: 512px; height: 512px;" />
     <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
         <div class="col-12">
             <label class="visually-hidden" for="genreId">Genres</label>
@@ -50,21 +56,25 @@
     </form>
 </div>
 
-<div class="w-100 mt-4 d-flex flex-wrap">
+<<div class="w-100 mt-4 d-flex flex-wrap">
     @foreach (var game in Model.Games)
     {
         <div class="card mx-2 mb-4 game-card" style="width: 11rem;">
-            <img src="@game.ImageUrl" class="card-img-top" alt="@game.GameName">
-            <div class="card-body">
+            <a href="/Home/GameDetails/@game.Id">
+                <img src="@game.ImageUrl" class="card-img-top" alt="@game.GameName">
+            </a>
+            <div class="d-grid gap-2 d-md-block">
                 <h5 class="card-title">@game.GameName</h5>
                 <p class="card-text">Genre:@game.Genre.GenreName</p>
                 <p>Developer:@game.Developer</p>
                 <p>Price:@game.Price</p>
+                <button type="button" onclick="add(@game.Id)" button class="btn btn-primary">Add to cart</button>
+
             </div>
-            <button type="button" onclick="add(@game.Id)" class="btn btn-primary">Add to cart</button>
         </div>
     }
 </div>
+
 
 @section Scripts {
     <script>
