@@ -4,5 +4,6 @@
     {
         Task<IEnumerable<Game>> GetGames(string sTerm = "", int genreID = 0);
         Task<IEnumerable<Genre>> Genres();
+        Task<Game> GetGameById(int id);
     }
 }
