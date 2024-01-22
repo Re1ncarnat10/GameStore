@@ -81,7 +81,8 @@
         async function add(gameId) {
             var usernameEl = document.getElementById("username");
             if (usernameEl == null) {
-                window.location.href = "/Identity/Account/Login";
+                alert('Please log in first');
+                return;
             }
             try {
                 var response = await fetch(`/Cart/AddItem?gameId=${gameId}`);
@@ -98,3 +99,4 @@
         }
     </script>
 }
+
