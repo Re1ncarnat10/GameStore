@@ -1,0 +1,11 @@
+﻿@using GameStore.ViewModels
+@model CreateGenreViewModel
+
+<form asp-action="Genre" method="post">
+    <div class="form-group">
+        <label for="GenreName">Genre Name</label>
+        <input asp-for="GenreName" class="form-control" id="GenreName" />
+        <span asp-validation-for="GenreName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

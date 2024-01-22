@@ -245,5 +245,30 @@ namespace GameStore.Controllers
         {
             return _context.Games.Any(e => e.Id == id);
         }
+        // GET: Admin/Genre
+        public IActionResult Genre()
+        {
+            return View();
+        }
+
+        // POST: Admin/Genre
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Genre(CreateGenreViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var genre = new Genre
+                {
+                    GenreName = model.GenreName
+                };
+
+                _context.Add(genre);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Manage));
+            }
+            return View(model);
+        }
+
     }
 }
